@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="blog/layout" th:with="title='关于 |',active='about'">
+<meta name="referrer" content="no-referrer" />
+<header th:replace="blog/layout::headerFragment(${title},${active})"></header>
+<body>
+<div layout:fragment="content">
+    <div class="content-wrap">
+        <div id="content" class="content">
+            <div id="posts" class="posts-expand">
+                <div class="post-block page" style="opacity: 1; display: block;">
+                    <header class="post-header" style="opacity: 1; display: block; transform: translateY(0px);">
+                        <h1 class="post-title" itemprop="name headline">关于博主</h1>
+                    </header>
+                    <div class="post-body" style="opacity: 1; display: block; transform: translateY(0px);">
+                        <h2>介绍</h2>
+                        <blockquote>
+                            <div>
+                                King，博主，从事自动化运维工作，喜欢k8s云原生态，同时也喜欢python爬虫、数据分析、可视化、自动化工具， 励志一年后成为一名合格的DevOps工程师。
+                            </div>
+                        </blockquote>
+                        <h2>技能标签</h2>
+                        <ul>
+                            <li>
+                                <h4>技术栈</h4>
+                                <blockquote>
+                                    <div>
+                                        JAVA、Python、shell
+                                        <br>
+                                        flask、SpringMVC、SpringBoot、MyBatis
+                                        <br>
+                                        MySQL、SQLserver(主从复制，读写分离)
+                                        <br>
+                                        Redis(哨兵、主从复制)
+                                        <br>
+                                        Zookeeper+kafka、RabbitMQ(解耦、异步、削峰)
+                                        <br>
+                                        zabbix+granfana+Prometheus(监控、报警)
+                                        <br>
+                                        ELK/EFK(分布式日志分析系统)
+                                        <br>
+                                        ansible(自动化运维工具)
+                                        <br>
+                                        hadoop大数据集群搭建、数据清洗、分析。
+                                        <br>
+                                        CI/CD持续集成(jenkins/gitlab-runner+gitlab+Pipeline)
+                                        <br>
+                                        keepalived+nginx/keepalived+haproxy
+                                        <br>
+                                        Linux、Apache、Tomcat、Nginx、PHP、虚拟化（kvm,VMware、服务器虚拟化以及热迁移）、容器化(docker/k8s)、微服务架构等
+                                    </div>
+                                </blockquote>
+                            </li>
+                            <li>
+                                <h4>技能证书</h4>
+                                <blockquote>
+                                    <div>
+                                        阿里巴巴云计算开发与运维中级认证
+                                        <br>
+                                        阿里巴巴大数据分析与应用中级认证
+                                        <br>
+                                        华为云鲲鹏弹性云服务器高可用性架构技能认证
+                                    </div>
+                                </blockquote>
+                            </li>
+                            <li>
+                                <h4>个人荣誉</h4>
+                                <blockquote>
+                                    <div>
+                                        重庆市优秀毕业大学生
+                                        <br>
+                                        重庆市巴渝工匠杯“大数据技术与应用”三等奖
+                                        <br>
+                                        重庆市全国信息产业新技术技能竞赛“python编程竞赛”三等奖
+                                        <br>
+                                        一带一路暨金砖国家佛山未来技术技能国际挑战赛“大数据与机器学习”三等奖
+                                        <br>
+                                        两次国家励志奖学金
+                                        <br>
+                                        连续三年一等奖学金、三好学生
+                                    </div>
+                                </blockquote>
+                            </li>
+                        </ul>
+                        <h2>个人爱好</h2>
+                        <blockquote>
+                            <div>
+                                看看NBA，打打篮球，跑步、拳击 关注一下体育比赛。平时看看技术论坛，专研技术。
+                            </div>
+                        </blockquote>
+                        <h2>联系</h2>
+                        <ul>
+                            <li>QQ：1490651591</li>
+                            <li>邮箱：1490651591@qq.com</li>
+                            <th:block th:each="index : ${commons.social()}">
+                                <th:block th:if="${index.value} != null and ${index.value} != ''">
+                                    <th:block th:switch="${index.key}">
+                                        <th:block th:case="'github'">
+                                            <li>GitHub：<a th:href="@{${index.value}}" target="_blank" th:text="${index.value}"></a></li>
+                                        </th:block>
+                                        <th:block th:case="'jianshu'">
+                                            <li>简书：<a th:href="@{${index.value}}" target="_blank" th:text="${index.value}"></a></li>
+                                        </th:block>
+                                        <th:block th:case="'zhihu'">
+                                            <li>知乎：<a th:href="@{${index.value}}" target="_blank" th:text="${index.value}"></a></li>
+                                        </th:block>
+                                        <th:block th:case="'csdn'">
+                                            <li>CSDN：<a th:href="@{${index.value}}" target="_blank" th:text="${index.value}"></a></li>
+                                        </th:block>
+                                        <th:block th:case="'resume'">
+                                            <li>简历：<a th:href="@{${index.value}}" target="_blank" th:text="${index.value}"></a></li>
+                                        </th:block>
+                                    </th:block>
+                                </th:block>
+                            </th:block>
+                            <li>CSDN：<a href="https://blog.csdn.net/IT99qky?spm=1000.2115.3001.5343" target="_blank">https://blog.csdn.net/IT99qky?spm=1000.2115.3001.5343</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

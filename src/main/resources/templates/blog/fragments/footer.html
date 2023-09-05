@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta name="referrer" content="no-referrer" />
+<body>
+<footer id="footer" class="footer" th:fragment="footer(record)">
+    <div class="footer-inner">
+        <div class="copyright">
+            © 2020 - <span>2021</span> <span class="with-love">
+                <i class="fa fa-heart"></i></span> <span class="author">king</span>
+        </div>
+
+        <div class="powered-by">
+            由 - <a class="theme-link" target="_blank" href="https://hexo.io/">hexo</a> 强力驱动
+        </div>
+
+        <div class="theme-info">
+            源码 - <a class="theme-link" target="_blank" href="https://github.com/"> king Blog </a>
+        </div>
+        <div>
+            <th:block th:if="${record != null and record != ''}">
+             蜀ICP备:   <a th:text="${record}" th:href="@{https://beian.miit.gov.cn/}"></a>
+            </th:block>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
